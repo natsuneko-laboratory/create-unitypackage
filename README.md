@@ -11,7 +11,7 @@ job:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: create-unitypackage@v1
+      - uses: natsuneko-laboratory/create-unitypackage
         with:
           meta: ./meta-list
           root: /path/to/UnityProject

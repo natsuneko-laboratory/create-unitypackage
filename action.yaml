@@ -11,5 +11,5 @@ inputs:
     required: true
     description: "Output file path of the UnityPackage"
 runs:
-  using: "node12"
+  using: "node16"
   main: "dist/index.js"

@@ -2,6 +2,13 @@
 
 Create UnityPackage in your GitHub Actions.
 
+## Properties
+
+| Property | Type | Required | Description |
+| -------- | ---- | -------- | ----------- |
+
+|
+
 ## Usage
 
 ```yaml

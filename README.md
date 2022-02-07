@@ -4,25 +4,45 @@ Create UnityPackage in your GitHub Actions.
 
 ## Properties
 
-| Property | Type | Required | Description |
-| -------- | ---- | -------- | ----------- |
-
-|
+| Property | Type     | Required          | Description                                 |
+| -------- | -------- | ----------------- | ------------------------------------------- |
+| `meta`   | `string` | Yes               | meta collections                            |
+| `root`   | `string` | No (default: `.`) | root directory                              |
+| `output` | `string` | Yes               | output filename such as `Neko.unitypackage` |
 
 ## Usage
 
 ```yaml
-job:
-  deploy:
-    name: deploy
+name: "Release by Tag"
+
+on:
+  push:
+    tags:
+      - v\d+\.\d+\.\d+
+  workflow_dispatch:
+
+jobs:
+  build:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - uses: natsuneko-laboratory/create-unitypackage
         with:
-          meta: ./meta-list
-          root: /path/to/UnityProject
-          output: ./some.unitypackage
+          lfs: true
+
+      - uses: natsuneko-laboratory/get-meta-from-glob@main
+        with:
+          patterns: |
+            Assets/NatsunekoLaboratory/RefinedAnimationProperty/**/*.*
+          output: ./MetaList
+
+      - run: |
+          mkdir ./dist
+          cat ./MetaList
+
+      - uses: natsuneko-laboratory/create-unitypackage@main
+        with:
+          meta: ./MetaList
+          output: dist/RefinedAnimationProperty.unitypackage
 ```
 
 ## License

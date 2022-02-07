@@ -46,9 +46,9 @@
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
 "@natsuneko-laboratory/unitypackage@^0.1.0":
-  version "0.1.0"
-  resolved "https://registry.yarnpkg.com/@natsuneko-laboratory/unitypackage/-/unitypackage-0.1.0.tgz#75dccbe7970d467edba7127ccf5263bd407e30a6"
-  integrity sha512-UdFM8H5s4baoQsKiV2OuxPf9XC+V9iuO6Ha1fi6FkV5AW0cB3A0GbC+Fq+wQjpIgiMKPV2/B0+vHvRG2JOJ69Q==
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@natsuneko-laboratory/unitypackage/-/unitypackage-0.1.2.tgz#8bf9e3c90fd2c1de7a8b3fffb9c6ed1543a21a23"
+  integrity sha512-SjIcCXH9Oql2BZqwGzqJLEp2gq+m9+fSELPrzUTQvb5ejxD4VPtxRVvbJ1lgaD6A/sEmU6vdpcrfdrw3ii1I7w==
   dependencies:
     archiver "^5.3.0"
     js-yaml "^4.1.0"
@@ -1004,9 +1004,9 @@ micromatch@^4.0.4:
     picomatch "^2.2.3"
 
 minimatch@^3.0.4:
-  version "3.0.4"
-  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.4.tgz#5166e286457f03306064be5497e8dbb0c3d32083"
-  integrity sha512-yJHVQEhyqPLUTgt9B83PXu6W3rx4MvvHvSUvToogpwoGDOUQ+yDrR0HRot+yOCdCO7u4hX3pWft6kWBBcqh0UA==
+  version "3.0.5"
+  resolved "https://registry.yarnpkg.com/minimatch/-/minimatch-3.0.5.tgz#4da8f1290ee0f0f8e83d60ca69f8f134068604a3"
+  integrity sha512-tUpxzX0VAzJHjLu0xUfFv1gwVp9ba3IOuRAVH2EGuRW8a5emA2FlACLqiT/lDVtS1W+TGNwqz3sWaNyLgDJWuw==
   dependencies:
     brace-expansion "^1.1.7"
 

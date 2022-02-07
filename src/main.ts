@@ -1,27 +1,27 @@
-import core from "@actions/core";
+import { getInput, setFailed } from "@actions/core";
 import fsp from "fs/promises";
 
 import { archive } from "@natsuneko-laboratory/unitypackage";
 
-const collect = async (path: string): Promise<string[]> => {
+async function collect(path: string): Promise<string[]> {
   const content = await fsp.readFile(path, "utf-8");
   const lines = content.split("\n");
 
   return lines.map((w) => w.trim()).filter((w) => w !== "");
-};
+}
 
-const main = async () => {
+async function main() {
   try {
-    const meta = core.getInput("meta");
-    const root = core.getInput("root");
-    const output = core.getInput("output");
+    const meta = getInput("meta");
+    const root = getInput("root") || process.cwd();
+    const output = getInput("output");
 
     const targets = await collect(meta);
 
     await archive(targets, root, output);
   } catch (err) {
-    if (err instanceof Error) core.setFailed(err.message);
+    if (err instanceof Error) setFailed(err.message);
   }
-};
+}
 
 main();

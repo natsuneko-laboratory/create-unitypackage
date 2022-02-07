@@ -17,3 +17,7 @@ job:
           root: /path/to/UnityProject
           output: ./some.unitypackage
 ```
+
+## License
+
+MIT by [Natsune - @6jz](https://twitter.com/6jz)

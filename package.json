@@ -9,7 +9,7 @@
   "private": false,
   "scripts": {
     "build": "tsc",
-    "package": "ncc build --source-map --license LICENSE"
+    "package": "ncc build -m src/main.ts -o dist --source-map --license LICENSE"
   },
   "devDependencies": {
     "@types/node": "^17.0.14",

@@ -31,7 +31,7 @@ jobs:
 
       - uses: natsuneko-laboratory/get-meta-from-glob@main
         with:
-          patterns: |
+          includes: |
             Assets/NatsunekoLaboratory/RefinedAnimationProperty/**/*.*
           output: ./MetaList
 

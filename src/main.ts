@@ -118,11 +118,7 @@ async function runForPackageInput(args?: { pkg: string; output: string }) {
   const basename = path.dirname(path.join(root, pkg));
   const targets = await collectTargetsFromGlob(basename);
 
-  await archive(
-    targets.map((w) => path.join(basename, w)),
-    root,
-    output
-  );
+  await archive(targets, root, output);
 }
 
 async function runForPackagesInput() {

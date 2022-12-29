@@ -2,14 +2,23 @@ name: "Create a UnityPackage"
 description: "Create a UnityPackage from Meta"
 inputs:
   meta:
-    required: true
-    description: ".meta list to create UnityPackage from"
+    required: false
+    description: "meta collections"
+  package:
+    required: false
+    description: "package.json for packaging"
+  packages:
+    required: false
+    description: "array of package.json for packaging"
   root:
-    required: true
-    description: "Root directory of the Unity project"
+    required: false
+    description: "root directory"
   output:
-    required: true
-    description: "Output file path of the UnityPackage"
+    required: false
+    description: "output filename"
+  outputs:
+    required: false
+    description: "array of output filename"
 runs:
   using: "node16"
   main: "dist/index.js"

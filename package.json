@@ -1,6 +1,6 @@
 {
   "name": "@natsuneko-laboratory/create-unitypackage",
-  "version": "1.0.0",
+  "version": "2.1.0",
   "description": "GitHub Actions for creating a UnityPackage",
   "main": "dist/index.js",
   "repository": "https://github.com/natsuneko-laboratory/create-unitypackage.git",

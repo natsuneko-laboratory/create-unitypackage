@@ -87,7 +87,7 @@ function collectTargetsFromMeta(path) {
 function collectTargetsFromGlob(root) {
     return __awaiter(this, void 0, void 0, function* () {
         const ignore = yield readIgnoreFile(root);
-        const files = glob_1.default.sync("**/*.*", { cwd: root, ignore });
+        const files = glob_1.default.sync("**/*", { cwd: root, ignore });
         const meta = files
             .filter((w) => !w.endsWith(".meta"))
             .flatMap((w) => {
@@ -119,7 +119,7 @@ function runForPackageInput(args) {
         const output = (_b = args === null || args === void 0 ? void 0 : args.output) !== null && _b !== void 0 ? _b : (0, inputs_1.getOutputInput)();
         const basename = path_1.default.dirname(pkg);
         const targets = yield collectTargetsFromGlob(basename);
-        yield (0, unitypackage_1.archive)(targets, root, output);
+        yield (0, unitypackage_1.archive)(targets.map((w) => path_1.default.join(basename, w)), root, output);
     });
 }
 function runForPackagesInput() {

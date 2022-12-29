@@ -80,7 +80,7 @@ async function collectTargetsFromMeta(path: string): Promise<string[]> {
 
 async function collectTargetsFromGlob(root: string): Promise<string[]> {
   const ignore = await readIgnoreFile(root);
-  const files = glob.sync("**/*.*", { cwd: root, ignore });
+  const files = glob.sync("**/*", { cwd: root, ignore });
   const meta = files
     .filter((w) => !w.endsWith(".meta"))
     .flatMap((w) => {

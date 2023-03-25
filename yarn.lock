@@ -51,13 +51,12 @@
   resolved "https://registry.yarnpkg.com/@humanwhocodes/object-schema/-/object-schema-1.2.1.tgz#b520529ec21d8e5945a1851dfd1c32e94e39ff45"
   integrity sha512-ZnQMnLV4e7hDlUvw8H+U8ASL02SS2Gn6+9Ac3wGGLIe7+je2AeAOxPY+izIPJDfFDb7eDjev0Us8MO1iFRN8hA==
 
-"@natsuneko-laboratory/unitypackage@^0.1.0":
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/@natsuneko-laboratory/unitypackage/-/unitypackage-0.1.5.tgz#ecb2021317c55d42cc0b1e1168bd3f0e11cbd04b"
-  integrity sha512-W9l9dtsaNyELk314cBtoPl0E4bZp1xJHq028mR1bg1OIR3viYzb+4aMUlPHSJLDalpmU81/EnkLCTcvXTnF51A==
+"@natsuneko-laboratory/unitypackage@^0.2.0":
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/@natsuneko-laboratory/unitypackage/-/unitypackage-0.2.0.tgz#f5d8566debc2a130c00ef1a318fa023af6cf2097"
+  integrity sha512-0NkcRAzmF9cP+dam4PmzUO5yB3ub0p9YJjosIx+He0LegbHZ7GY766qpX8JSrRMPzWcYNeyAkffC0PHkUe+iZA==
   dependencies:
     adm-zip "^0.5.9"
-    js-yaml "^4.1.0"
     mkdirp "^1.0.4"
     tar "^6.1.11"
 

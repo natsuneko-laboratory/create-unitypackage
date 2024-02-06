@@ -1,24 +1,18 @@
 name: "Create a UnityPackage"
-description: "Create a UnityPackage from Meta"
+description: "Create a UnityPackage on GitHub Actions, without Unity Editor"
 inputs:
-  meta:
-    required: false
-    description: "meta collections"
-  package:
-    required: false
-    description: "package.json for packaging"
-  packages:
-    required: false
-    description: "array of package.json for packaging"
   root:
     required: false
-    description: "root directory"
-  output:
+    description: "the Unity project root directory"
+  files:
     required: false
-    description: "output filename"
-  outputs:
+    description: "the actual file paths (not meta) to include to unitypackage"
+  files-glob:
     required: false
-    description: "array of output filename"
+    description: "the glob patterns for actual file paths (not meta) to include to unitypackage"
+  dest:
+    required: true
+    description: "the destination path for creating unitypackage"
 runs:
-  using: "node16"
+  using: "node20"
   main: "dist/index.js"

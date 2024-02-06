@@ -1,28 +1,24 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getOutputsInput = exports.getOutputInput = exports.getRootInput = exports.getPackagesInput = exports.getPackageInput = exports.getMetaInput = void 0;
+exports.getDestination = exports.getGlobPatternFiles = exports.getFiles = exports.getProjectRoot = void 0;
+const node_process_1 = require("node:process");
 const core_1 = require("@actions/core");
-function getMetaInput() {
-    return (0, core_1.getInput)("meta", { required: false });
-}
-exports.getMetaInput = getMetaInput;
-function getPackageInput() {
-    return (0, core_1.getInput)("package", { required: false });
-}
-exports.getPackageInput = getPackageInput;
-function getPackagesInput() {
-    return (0, core_1.getMultilineInput)("packages", { required: false });
-}
-exports.getPackagesInput = getPackagesInput;
-function getRootInput() {
-    return (0, core_1.getInput)("root", { required: false }) || process.cwd();
-}
-exports.getRootInput = getRootInput;
-function getOutputInput() {
-    return (0, core_1.getInput)("output", { required: false });
-}
-exports.getOutputInput = getOutputInput;
-function getOutputsInput() {
-    return (0, core_1.getMultilineInput)("outputs", { required: false });
-}
-exports.getOutputsInput = getOutputsInput;
+const globby_1 = require("globby");
+const getProjectRoot = () => (0, core_1.getInput)("root", { required: false }) || (0, node_process_1.cwd)();
+exports.getProjectRoot = getProjectRoot;
+const getFiles = () => (0, core_1.getMultilineInput)("files", { required: false }) || [];
+exports.getFiles = getFiles;
+const getGlobPatternFiles = () => {
+    const patterns = (0, core_1.getMultilineInput)("files-glob", { required: false }) || [];
+    if (patterns.length === 0) {
+        return patterns;
+    }
+    const root = getProjectRoot();
+    return (0, globby_1.globbySync)(patterns, {
+        cwd: root,
+        ignoreFiles: ["**/.gitignore", "**/.npmignore"],
+    });
+};
+exports.getGlobPatternFiles = getGlobPatternFiles;
+const getDestination = () => (0, core_1.getInput)("dest", { required: true });
+exports.getDestination = getDestination;

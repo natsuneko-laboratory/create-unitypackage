@@ -114,4 +114,4 @@ jobs:
 
 ## License
 
-MIT by [Natsune - @6jz](https://twitter.com/6jz)
+MIT by [@6jz](https://to.natsuneko.com/6jz)

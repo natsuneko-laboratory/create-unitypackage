@@ -1,7 +1,5 @@
 name: "Create a UnityPackage"
 description: "Create a UnityPackage on GitHub Actions, without Unity Editor"
-icon: "package"
-color: "blue"
 inputs:
   root:
     required: false
@@ -18,3 +16,6 @@ inputs:
 runs:
   using: "node20"
   main: "dist/index.js"
+branding:
+  icon: "package"
+  color: "blue"

@@ -1,5 +1,7 @@
 name: "Create a UnityPackage"
 description: "Create a UnityPackage on GitHub Actions, without Unity Editor"
+icon: "package"
+color: "blue"
 inputs:
   root:
     required: false

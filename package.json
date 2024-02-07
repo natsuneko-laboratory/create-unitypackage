@@ -1,6 +1,6 @@
 {
   "name": "@natsuneko-laboratory/create-unitypackage",
-  "version": "2.2.0",
+  "version": "3.0.0",
   "description": "GitHub Actions for creating a UnityPackage",
   "main": "dist/index.js",
   "repository": "https://github.com/natsuneko-laboratory/create-unitypackage.git",
@@ -11,22 +11,15 @@
     "build": "tsc",
     "package": "ncc build -m src/main.ts -o dist --source-map --license LICENSE"
   },
-  "devDependencies": {
-    "@types/glob": "^8.0.0",
-    "@types/node": "^18.11.18",
-    "@typescript-eslint/eslint-plugin": "^5.47.1",
-    "@typescript-eslint/parser": "^5.47.1",
-    "@vercel/ncc": "^0.36.0",
-    "eslint": "^8.30.0",
-    "eslint-config-airbnb-base": "^15.0.0",
-    "eslint-config-airbnb-typescript": "^17.0.0",
-    "eslint-config-prettier": "^8.5.0",
-    "prettier": "^2.8.1",
-    "typescript": "^4.9.4"
-  },
   "dependencies": {
-    "@actions/core": "^1.10.0",
-    "@natsuneko-laboratory/unitypackage": "^0.2.0",
-    "glob": "^8.0.3"
+    "@actions/core": "^1.10.1",
+    "@natsuneko-laboratory/unitypackage": "^1.0.2",
+    "globby": "^14.0.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^1.5.3",
+    "@types/node": "^20.11.16",
+    "@vercel/ncc": "^0.36.0",
+    "typescript": "^5.3.3"
   }
 }

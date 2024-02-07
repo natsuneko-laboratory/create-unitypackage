@@ -1,0 +1,51 @@
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  test:
+    strategy:
+      matrix:
+        platform:
+          - ubuntu-latest
+          - windows-latest
+          - macos-latest
+    runs-on: ${{ matrix.platform }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: with files (root)
+        uses: ./
+        with:
+          root: ./fixtures/
+          files: |
+            ./fixtures/Assets/MonoBehaviourAsset.cs
+          dest: dist/test1.unitypackage
+
+      - name: with files-glob (without gitignore)
+        uses: ./
+        with:
+          root: ./fixtures
+          files-glob: |
+            ./fixtures/**/*.cs
+          dest: dist/test2.unitypackage
+
+      - name: write .gitignore
+        run: |
+          echo "**/*.cs" >> ./fixtures/.gitignore
+
+      - name: with files-glob (with gitignore)
+        uses: ./
+        with:
+          root: ./fixtures
+          files-glob: |
+            ./fixtures/**/*
+          dest: dist/test3.unitypackage
+
+      - name: upload artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          path: ./dist/*.unitypackage

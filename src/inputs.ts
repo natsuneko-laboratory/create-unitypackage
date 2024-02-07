@@ -1,25 +1,24 @@
+import { cwd } from "node:process";
+
 import { getInput, getMultilineInput } from "@actions/core";
+import { globbySync } from "globby";
 
-export function getMetaInput(): string {
-  return getInput("meta", { required: false });
-}
+const getProjectRoot = () => getInput("root", { required: false }) || cwd();
 
-export function getPackageInput(): string {
-  return getInput("package", { required: false });
-}
+const getFiles = () => getMultilineInput("files", { required: false }) || [];
 
-export function getPackagesInput(): string[] {
-  return getMultilineInput("packages", { required: false });
-}
+const getGlobPatternFiles = () => {
+  const patterns = getMultilineInput("files-glob", { required: false }) || [];
+  if (patterns.length === 0) {
+    return patterns;
+  }
 
-export function getRootInput(): string {
-  return getInput("root", { required: false }) || process.cwd();
-}
+  return globbySync(patterns, {
+    ignore: ["**/*.meta"],
+    ignoreFiles: ["**/.gitignore", "**/.npmignore"],
+  });
+};
 
-export function getOutputInput(): string {
-  return getInput("output", { required: false });
-}
+const getDestination = () => getInput("dest", { required: true });
 
-export function getOutputsInput(): string[] {
-  return getMultilineInput("outputs", { required: false });
-}
+export { getProjectRoot, getFiles, getGlobPatternFiles, getDestination };

@@ -4,12 +4,13 @@ Create a UnityPackage on GitHub Actions, without Unity Editor
 
 ## Properties
 
-| Name         | Type       | Required              | Description                                                                   |
-| ------------ | ---------- | --------------------- | ----------------------------------------------------------------------------- |
-| `root`       | `string`   | No (default: `cwd()`) | the Unity project root directory                                              |
-| `files`      | `string[]` | No (default: `[]`)    | the actual file paths (not meta) to include to unitypackage                   |
-| `files-glob` | `string[]` | No (default: `[]`)    | the glob patterns for actual file paths (not meta) to include to unitypackage |
-| `dest`       | `string`   | Yes                   | the destination path for creating unitypackage                                |
+| Name                | Type       | Required              | Description                                                                   |
+| ------------------- | ---------- | --------------------- | ----------------------------------------------------------------------------- |
+| `root`              | `string`   | No (default: `cwd()`) | the Unity project root directory                                              |
+| `files`             | `string[]` | No (default: `[]`)    | the actual file paths (not meta) to include to unitypackage                   |
+| `files-glob`        | `string[]` | No (default: `[]`)    | the glob patterns for actual file paths (not meta) to include to unitypackage |
+| `respect-gitignore` | `boolean`  | No (default: `true`)  | respect `.gitignore` / `.npmignore` file for filtering files                  |
+| `dest`              | `string`   | Yes                   | the destination path for creating unitypackage                                |
 
 ## Example
 

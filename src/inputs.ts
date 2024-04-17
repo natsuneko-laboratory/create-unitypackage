@@ -13,10 +13,17 @@ const getGlobPatternFiles = () => {
     return patterns;
   }
 
+  const isRespectGitIgnore = getIsRespectGitIgnore();
+
   return globbySync(patterns, {
     ignore: ["**/*.meta"],
-    ignoreFiles: ["**/.gitignore", "**/.npmignore"],
+    ignoreFiles: isRespectGitIgnore ? ["**/.gitignore", "**/.npmignore"] : [],
   });
+};
+
+const getIsRespectGitIgnore = () => {
+  const val = getInput("respect-gitignore", { required: false }) || "true";
+  return val === "true";
 };
 
 const getDestination = () => getInput("dest", { required: true });

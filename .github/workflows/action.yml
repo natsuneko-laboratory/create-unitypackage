@@ -45,6 +45,15 @@ jobs:
             ./fixtures/**/*
           dest: dist/test3.unitypackage
 
+      - name: with files-glob (not respect gitignore)
+        uses: ./
+        with:
+          root: ./fixtures
+          files-glob: |
+            ./fixtures/**/*
+          respect-gitignore: false
+          dest: dist/test3.unitypackage
+
       - name: upload artifacts
         uses: actions/upload-artifact@v3
         with:

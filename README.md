@@ -47,6 +47,8 @@ jobs:
           dest: test.unitypackage
 ```
 
+If you want to see more examples, please check [`.github/workflows/action.yml`](.github/workflows/action.yml).
+
 ## License
 
 MIT by [@6jz](https://to.natsuneko.com/6jz)

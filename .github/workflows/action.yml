@@ -17,6 +17,9 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
+      # example action for packaging ./fixtures/Assets/MonoBehaviourAsset.cs only
+      # extracted:
+      #   MonoBehaviourAsset.cs
       - name: with files (root)
         uses: ./
         with:
@@ -25,6 +28,11 @@ jobs:
             ./fixtures/Assets/MonoBehaviourAsset.cs
           dest: dist/test1.unitypackage
 
+      # example action for packaging all C# script files
+      # extracted:
+      #  FolderAsset/
+      #  ├─ OtherMonoBehaviourAsset.cs
+      #  MonoBehaviourAsset.cs
       - name: with files-glob (without gitignore)
         uses: ./
         with:
@@ -37,6 +45,10 @@ jobs:
         run: |
           echo "**/*.cs" >> ./fixtures/.gitignore
 
+      # example action for packaging all files, but respect .gitignore
+      # extracted:
+      #   FolderAsset/
+      #   ├─ Shaders.txt
       - name: with files-glob (with gitignore)
         uses: ./
         with:
@@ -45,6 +57,12 @@ jobs:
             ./fixtures/**/*
           dest: dist/test3.unitypackage
 
+      # example action for packaging all files, but **not** respect .gitignore
+      # extracted:
+      #   FolderAsset/
+      #   ├─ Shaders.txt
+      #   ├─ OtherMonoBehaviourAsset.cs
+      #   MonoBehaviourAsset.cs
       - name: with files-glob (not respect gitignore)
         uses: ./
         with:

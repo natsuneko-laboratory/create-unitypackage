@@ -13,12 +13,16 @@ const getGlobPatternFiles = () => {
     if (patterns.length === 0) {
         return patterns;
     }
-    const root = getProjectRoot();
+    const isRespectGitIgnore = getIsRespectGitIgnore();
     return (0, globby_1.globbySync)(patterns, {
-        cwd: root,
-        ignoreFiles: ["**/.gitignore", "**/.npmignore"],
+        ignore: ["**/*.meta"],
+        ignoreFiles: isRespectGitIgnore ? ["**/.gitignore", "**/.npmignore"] : [],
     });
 };
 exports.getGlobPatternFiles = getGlobPatternFiles;
+const getIsRespectGitIgnore = () => {
+    const val = (0, core_1.getInput)("respect-gitignore", { required: false }) || "true";
+    return val === "true";
+};
 const getDestination = () => (0, core_1.getInput)("dest", { required: true });
 exports.getDestination = getDestination;

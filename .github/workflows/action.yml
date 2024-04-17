@@ -52,7 +52,7 @@ jobs:
           files-glob: |
             ./fixtures/**/*
           respect-gitignore: false
-          dest: dist/test3.unitypackage
+          dest: dist/test4.unitypackage
 
       - name: upload artifacts
         uses: actions/upload-artifact@v3

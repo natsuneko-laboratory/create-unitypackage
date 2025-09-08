@@ -1,3 +1,5 @@
+name: "Test create-unitypackage"
+
 on:
   push:
     branches:
@@ -73,6 +75,6 @@ jobs:
           dest: dist/test4.unitypackage
 
       - name: upload artifacts
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           path: ./dist/*.unitypackage
